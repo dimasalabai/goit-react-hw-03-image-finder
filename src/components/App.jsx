@@ -1,5 +1,10 @@
-import PhoneBook from './PhoneBook/PhoneBook';
-
+import SearchImages from './SearchImages/SearchImages';
+import Posts from './Posts/Posts';
 export const App = () => {
-  return <PhoneBook />;
+  return (
+    <>
+      <SearchImages />
+      <Posts />
+    </>
+  );
 };
