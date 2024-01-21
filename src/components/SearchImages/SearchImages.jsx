@@ -4,6 +4,7 @@ import styles from './search-images.module.css';
 import { getAllPhotos } from 'api/photos';
 
 import { Loader } from 'components/Loader/Loader';
+import SearchBar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import ImageGalleryItem from './ImageGallery/ImageGalleryItem/ImageGalleryItem';
 
@@ -37,14 +38,19 @@ class SearchImages extends Component {
   render() {
     const { images, loading, error } = this.state;
     return (
-      <div className={styles.wrapper}>
-        {error && <p className={styles.error}>{error}</p>}
-        {loading && <Loader />}
+      <>
+        <SearchBar />
+        <div className={styles.wrapper}>
+          {error && <p className={styles.error}>{error}</p>}
+          {loading && <Loader />}
 
-        <ImageGallery>
-          <ImageGalleryItem items={images} />
-        </ImageGallery>
-      </div>
+          {Boolean(images.length) && (
+            <ImageGallery>
+              <ImageGalleryItem items={images} />
+            </ImageGallery>
+          )}
+        </div>
+      </>
     );
   }
 }

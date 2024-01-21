@@ -1,10 +1,10 @@
 import SearchImages from './SearchImages/SearchImages';
-import Posts from './Posts/Posts';
+import PostsSearch from './PostsSearch/PostsSearch';
 export const App = () => {
   return (
     <>
+      <PostsSearch />
       <SearchImages />
-      <Posts />
     </>
   );
 };
